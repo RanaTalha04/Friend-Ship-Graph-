@@ -1,4 +1,5 @@
 **📊 Social Network Graph Analysis**
+
 This project analyzes a friendship graph using NetworkX and Matplotlib. It cleans the dataset, constructs the graph, and computes key network measures such as:
 
 Degree distribution 📈
