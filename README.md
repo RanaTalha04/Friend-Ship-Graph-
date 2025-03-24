@@ -75,14 +75,5 @@ If you encounter `fatal: refusing to merge unrelated histories`, use:
 git pull origin master --allow-unrelated-histories
 ```
 
-## Future Improvements
-- Add dynamic community detection algorithms.
-- Enhance visualization with interactive graphs (e.g., using Plotly).
-- Optimize large-scale network computations using parallel processing.
-
 ## Author
-**Muhammad Talha**
-
----
-This project provides a comprehensive analysis of a social network graph, focusing on key graph theory concepts. 🚀
-
+**Muhammad Talha** 
