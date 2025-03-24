@@ -27,19 +27,16 @@ Path length distribution (shortest path between nodes).
 🔹 Requirements
 Ensure you have Python 3.x installed. Install the dependencies using:
 
-sh
-Copy
-Edit
 pip install networkx matplotlib pandas numpy
+
 🚀 How to Use
+
 Place your CSV file (Friendship_Graph_2022.csv) in the project directory.
 
 Run the script:
 
-sh
-Copy
-Edit
 python graph_analysis.py
+
 The script will:
 
 Clean and load the graph.
