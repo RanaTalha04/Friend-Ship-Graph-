@@ -9,6 +9,7 @@ Clustering coefficient distribution 🔄
 Path length distribution 🔍
 
 🛠 Features
+
 ✅ Reads and cleans a CSV adjacency list to remove empty nodes.
 ✅ Constructs an undirected graph from the cleaned dataset.
 ✅ Removes a specified node (630 by default).
