@@ -76,3 +76,43 @@ else:
 
 plt.tight_layout()
 plt.show()
+
+# 4 types of centrality measures of all the nodes
+
+degree_centrality = nx.degree_centrality(G)
+closeness_centrality = nx.closeness_centrality(G)
+betweenness_centrality = nx.betweenness_centrality(G)
+eigenvector_centrality = nx.eigenvector_centrality(G, max_iter=1000)
+
+# Convert to DataFrame for easy sorting
+centrality_df = pd.DataFrame({
+    "Node": list(G.nodes),
+    "Degree": degree_centrality.values(),
+    "Closeness": closeness_centrality.values(),
+    "Betweenness": betweenness_centrality.values(),
+    "Eigenvector": eigenvector_centrality.values()
+})
+
+# Sort by each centrality measure and take the top 10 nodes
+top_10_degree = centrality_df.nlargest(10, "Degree")
+top_10_closeness = centrality_df.nlargest(10, "Closeness")
+top_10_betweenness = centrality_df.nlargest(10, "Betweenness")
+top_10_eigenvector = centrality_df.nlargest(10, "Eigenvector")
+
+# Display results
+print("\nTop 10 Nodes by Degree Centrality:\n", top_10_degree)
+print("\nTop 10 Nodes by Closeness Centrality:\n", top_10_closeness)
+print("\nTop 10 Nodes by Betweenness Centrality:\n", top_10_betweenness)
+print("\nTop 10 Nodes by Eigenvector Centrality:\n", top_10_eigenvector)
+
+# Save results to CSV
+centrality_df.to_csv("centrality_measures.csv", index=False)
+
+# Plot Degree Distribution
+plt.figure(figsize=(10, 5))
+degree_values = [deg for _, deg in G.degree()]
+plt.hist(degree_values, bins=20, color='skyblue', edgecolor='black')
+plt.xlabel("Degree")
+plt.ylabel("Frequency")
+plt.title("Degree Distribution of Graph")
+plt.show()
