@@ -1,4 +1,5 @@
 **📊 Social Network Graph Analysis**
+
 This project analyzes a friendship graph using NetworkX and Matplotlib. It cleans the dataset, constructs the graph, and computes key network measures such as:
 
 Degree distribution 📈
@@ -8,6 +9,7 @@ Clustering coefficient distribution 🔄
 Path length distribution 🔍
 
 🛠 Features
+
 ✅ Reads and cleans a CSV adjacency list to remove empty nodes.
 ✅ Constructs an undirected graph from the cleaned dataset.
 ✅ Removes a specified node (630 by default).
@@ -25,19 +27,16 @@ Path length distribution (shortest path between nodes).
 🔹 Requirements
 Ensure you have Python 3.x installed. Install the dependencies using:
 
-sh
-Copy
-Edit
 pip install networkx matplotlib pandas numpy
+
 🚀 How to Use
+
 Place your CSV file (Friendship_Graph_2022.csv) in the project directory.
 
 Run the script:
 
-sh
-Copy
-Edit
 python graph_analysis.py
+
 The script will:
 
 Clean and load the graph.
