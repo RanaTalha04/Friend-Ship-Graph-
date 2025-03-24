@@ -2,6 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+import random
 
 # Step 1: Read and Clean Graph Data
 with open("Friendship_Graph_2022.csv", "r", encoding="utf-8") as infile, open("cleaned_graph.adjlist", "w", encoding="utf-8") as outfile:
@@ -116,3 +117,47 @@ plt.xlabel("Degree")
 plt.ylabel("Frequency")
 plt.title("Degree Distribution of Graph")
 plt.show()
+
+communities = list(nx.algorithms.community.asyn_lpa_communities(G))
+
+# Assign a unique color to each community
+community_colors = {}
+colors = ["#"+''.join([random.choice('0123456789ABCDEF') for _ in range(6)]) for _ in range(len(communities))]
+
+for i, community in enumerate(communities):
+    for node in community:
+        community_colors[node] = colors[i]
+
+# Draw the graph with different colors for each community
+plt.figure(figsize=(12, 8))
+pos = nx.spring_layout(G, seed=42)  # Layout for better visualization
+nx.draw(G, pos, with_labels=True, node_color=[community_colors[node] for node in G.nodes()], 
+        edge_color='gray', node_size=800, font_size=8)
+
+plt.title("Community Detection in Social Network Graph")
+plt.show()
+
+clustering_coeff = nx.average_clustering(G)
+
+# Calculate Average Shortest Path Length
+avg_path_length = nx.average_shortest_path_length(G)
+
+# Generate a Random Graph with the same number of nodes & edges
+random_graph = nx.gnm_random_graph(n=len(G.nodes()), m=len(G.edges()))
+
+# Calculate Clustering & Path Length for Random Graph
+random_clustering = nx.average_clustering(random_graph)
+random_path_length = nx.average_shortest_path_length(random_graph)
+
+# Display Results
+print("🔹 Small-World Network Analysis 🔹")
+print(f"Graph Clustering Coefficient: {clustering_coeff:.4f}")
+print(f"Random Graph Clustering Coefficient: {random_clustering:.4f}")
+print(f"Graph Average Path Length: {avg_path_length:.4f}")
+print(f"Random Graph Average Path Length: {random_path_length:.4f}")
+
+# Small-World Condition Check
+if clustering_coeff > random_clustering and avg_path_length <= random_path_length:
+    print("✅ The Graph Exhibits Small-World Properties!")
+else:
+    print("❌ The Graph Does NOT Exhibit Small-World Properties.")
