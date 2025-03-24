@@ -1,60 +1,88 @@
-**📊 Social Network Graph Analysis**
+# Social Network Graph Analysis
 
-This project analyzes a friendship graph using NetworkX and Matplotlib. It cleans the dataset, constructs the graph, and computes key network measures such as:
+## Overview
+This project analyzes a social network graph using **NetworkX** and **Matplotlib** in Python. The analysis includes:
+- Cleaning and visualizing the graph
+- Computing various graph statistics
+- Finding centrality measures
+- Detecting communities
+- Checking for small-world properties
+- Generating distributions of node properties
 
-Degree distribution 📈
+## Features
+### 1. **Graph Cleaning & Visualization**
+- Reads a CSV file and removes unwanted characters.
+- Converts the data into an adjacency list format.
+- Visualizes the cleaned graph with labels.
 
-Clustering coefficient distribution 🔄
+### 2. **Graph Properties**
+The following network properties are computed:
+- **Average Degree**
+- **Average Clustering Coefficient**
+- **Average Path Length**
+- **Graph Diameter**
+- **Assortativity Coefficient**
+- **Nodes with Highest & Lowest Degree**
 
-Path length distribution 🔍
+### 3. **Degree, Clustering Coefficient & Path Length Distribution**
+- Generates distribution plots for:
+  - Node degrees
+  - Clustering coefficients
+  - Path lengths
 
-🛠 Features
+### 4. **Centrality Measures (Top-10 Nodes)**
+- **Degree Centrality**
+- **Closeness Centrality**
+- **Betweenness Centrality**
+- **Eigenvector Centrality**
 
-✅ Reads and cleans a CSV adjacency list to remove empty nodes.
-✅ Constructs an undirected graph from the cleaned dataset.
-✅ Removes a specified node (630 by default).
-✅ Ensures the graph remains connected by keeping the largest component.
-✅ Computes graph properties such as:
+### 5. **Community Detection**
+- Uses the **asyn_lpa_communities** method from NetworkX to identify communities.
+- Visualizes the graph with different colors for each community.
 
-Degree distribution (how many connections each node has).
+### 6. **Small-World Property Check**
+- Compares the clustering coefficient and path length to determine if the graph exhibits small-world behavior.
 
-Clustering coefficient (how well neighbors of a node are connected).
+## Installation & Usage
+### Prerequisites
+- Python 3.x
+- NetworkX
+- Matplotlib
+- Pandas (optional, for advanced data handling)
 
-Path length distribution (shortest path between nodes).
-✅ Visualizes these properties using histograms.
+### Installation
+```bash
+pip install networkx matplotlib
+```
 
-📥 Installation
-🔹 Requirements
-Ensure you have Python 3.x installed. Install the dependencies using:
+### Run the Script
+```bash
+python analysis.py
+```
 
-pip install networkx matplotlib pandas numpy
+## Git Commands for Repository Management
+### Set Up Remote Repository
+If you face an error like `remote origin already exists`, you can fix it using:
+```bash
+git remote remove origin
+git remote add origin https://github.com/RanaTalha04/Social-Network-Graph-Analysis.git
+git push -u origin master
+```
 
-🚀 How to Use
+### Pulling Changes
+If you encounter `fatal: refusing to merge unrelated histories`, use:
+```bash
+git pull origin master --allow-unrelated-histories
+```
 
-Place your CSV file (Friendship_Graph_2022.csv) in the project directory.
+## Future Improvements
+- Add dynamic community detection algorithms.
+- Enhance visualization with interactive graphs (e.g., using Plotly).
+- Optimize large-scale network computations using parallel processing.
 
-Run the script:
+## Author
+**Muhammad Talha**
 
-python graph_analysis.py
-
-The script will:
-
-Clean and load the graph.
-
-Remove an unwanted node (630 by default).
-
-Please make sure connectivity (keep the largest component).
-
-Generate histograms for degree, clustering coefficient, and path length.
-
-📊 Output Visualizations
-The script generates three histograms:
-1️⃣ Degree Distribution – Shows the number of connections per node.
-2️⃣ Clustering Coefficient Distribution – Indicates the cliquishness of nodes.
-3️⃣ Path Length Distribution – Displays shortest paths between nodes (only if the graph is connected).
-Save computed metrics to a CSV file for further analysis.
-
-Implement a graph visualization with interactive D3.js.
-
-Compare the real-world network to random graphs.
+---
+This project provides a comprehensive analysis of a social network graph, focusing on key graph theory concepts. 🚀
 
