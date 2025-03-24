@@ -59,21 +59,5 @@ pip install networkx matplotlib
 ```bash
 python analysis.py
 ```
-
-## Git Commands for Repository Management
-### Set Up Remote Repository
-If you face an error like `remote origin already exists`, you can fix it using:
-```bash
-git remote remove origin
-git remote add origin https://github.com/RanaTalha04/Social-Network-Graph-Analysis.git
-git push -u origin master
-```
-
-### Pulling Changes
-If you encounter `fatal: refusing to merge unrelated histories`, use:
-```bash
-git pull origin master --allow-unrelated-histories
-```
-
 ## Author
 **Muhammad Talha** 
